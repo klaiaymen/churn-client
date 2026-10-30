@@ -66,6 +66,8 @@ X, y = df[NUM + CAT], df[TARGET].astype(int)
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.20, stratify=y, random_state=SEED
 )
+# On mémorise les clients du test : score.py s'en sert pour distinguer les scores "honnêtes" (jamais vus à l'entraînement)
+df.loc[X_test.index, ID_COL].to_csv(ROOT / "models" / "test_customer_ids.csv", index=False)
 print(f"Train : {len(X_train):,} | Test : {len(X_test):,} | churn = {y.mean():.1%}")
 print(f"PR-AUC d'un modèle au hasard = taux de churn = {y_test.mean():.3f}\n")
 
