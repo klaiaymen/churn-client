@@ -1,1 +1,8 @@
-.venv/, data/, *.duckdb, mlruns/
+.venv/
+data/
+*.duckdb
+mlruns/
+mlflow.db
+mlruns/
+mlartifacts/
+models/
